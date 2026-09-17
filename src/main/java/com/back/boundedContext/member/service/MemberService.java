@@ -1,9 +1,9 @@
-package com.back.service;
+package com.back.boundedContext.member.service;
 
 
-import com.back.entity.Member;
-import com.back.exception.DomainException;
-import com.back.repository.MemberRepository;
+import com.back.boundedContext.member.entity.Member;
+import com.back.global.exception.DomainException;
+import com.back.boundedContext.member.repository.MemberRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -20,7 +20,7 @@ public class MemberService {
         return memberRepository.count();
     }
 
-    public com.back.entity.Member join(String username, String password, String nickname) {
+    public Member join(String username, String password, String nickname) {
         findByUsername(username).ifPresent(m -> {
             throw new DomainException("409-1", "이미 존재하는 username 입니다.");
         });
