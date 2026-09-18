@@ -1,11 +1,9 @@
-package com.back.boundedContext.member.domain;
+package com.back.shared.member.domain;
 
-import com.back.shared.member.domain.BaseMember;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.time.LocalDateTime;
 
