@@ -1,5 +1,6 @@
 package com.back.boundedContext.cash.app;
 
+import com.back.shared.cash.dto.CashMemberDto;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,7 +27,7 @@ public class CashFacade {
     }
 
     @Transactional
-    public Wallet createWallet(CashMember holder) {
+    public Wallet createWallet(CashMemberDto holder) {
         return cashCreateWalletUseCase.createWallet(holder);
     }
 
