@@ -11,6 +11,8 @@ import com.back.shared.member.dto.MemberDto;
 
 import lombok.RequiredArgsConstructor;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class CashFacade {
@@ -26,7 +28,8 @@ public class CashFacade {
                 member.getUsername(),
                 "",
                 member.getNickname(),
-                member.getActivityScore());
+                member.getActivityScore()
+        );
 
         return cashMemberRepository.save(_member);
     }
@@ -36,5 +39,15 @@ public class CashFacade {
         Wallet wallet = new Wallet(holder);
 
         return walletRepository.save(wallet);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<CashMember> findMemberByUsername(String username) {
+        return cashMemberRepository.findByUsername(username);
+    }
+
+    @Transactional(readOnly = true)
+    public Optional<Wallet> findWalletByHolder(CashMember holder) {
+        return walletRepository.findByHolder(holder);
     }
 }
