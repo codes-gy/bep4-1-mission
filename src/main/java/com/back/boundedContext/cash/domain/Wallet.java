@@ -1,6 +1,7 @@
 package com.back.boundedContext.cash.domain;
 
 import com.back.global.jpa.entity.BaseManualIdAndTime;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.ManyToOne;

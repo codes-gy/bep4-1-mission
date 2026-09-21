@@ -1,13 +1,15 @@
 package com.back.boundedContext.cash.app;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.back.boundedContext.cash.domain.CashMember;
 import com.back.boundedContext.cash.domain.Wallet;
 import com.back.boundedContext.cash.out.CashMemberRepository;
 import com.back.boundedContext.cash.out.WalletRepository;
 import com.back.shared.member.dto.MemberDto;
+
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +26,7 @@ public class CashFacade {
                 member.getUsername(),
                 "",
                 member.getNickname(),
-                member.getActivityScore()
-        );
+                member.getActivityScore());
 
         return cashMemberRepository.save(_member);
     }
